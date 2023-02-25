@@ -66,6 +66,9 @@ export default class UpdateTimeOnSavePlugin extends Plugin {
   }
 
   shouldFileBeIgnored(path: string): boolean {
+    if (path.endsWith('.excalidraw.md')) {
+      return true;
+    }
     const ignores = this.getIgnoreFolders();
     if (!ignores) {
       return false;
